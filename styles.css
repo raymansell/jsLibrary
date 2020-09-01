@@ -28,6 +28,31 @@ input {
   background-color: #b6a282;
 }
 
+header {
+  display:flex;
+  height: 80px;
+}
+
+header > * {
+  flex: 1;
+  display: flex;
+}
+
+header div span{
+  align-self: center;
+  margin: 0 auto;
+  font-size: 40px;
+}
+
+header input {
+  align-self: center;
+  font-size: 16px;
+  width: 60%;
+  height: 32px;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
 /* .wrapper {
   display:flex;
   justify-content: center;
@@ -180,6 +205,10 @@ input {
     width: 740px;
   }
 
+  header input {
+    width: 80%;
+  }
+
 }
 
 @media all and (max-width:785px) {
@@ -191,4 +220,11 @@ input {
     width: 370px;
   }
 
+  header input {
+    width: 100%;
+  }
+
+  header div span{
+    font-size: 36px;
+  }
 }

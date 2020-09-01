@@ -18,6 +18,10 @@ Book.prototype = {
 const hobbit = new Book("The Hobbit", "J.R.R Tolkien", 295, false);
 console.log(hobbit.info());
 
+//Filter field and event
+const filter = document.getElementById('filter');
+filter.addEventListener('keyup', filterBooks);
+
 //Book Shelf (container)
 const shelf = document.querySelector('.book-container')
 
@@ -68,11 +72,11 @@ function addToShelf(e) {
   //new card element (li) 
   let li = document.createElement('li');
   li.innerHTML =
-    "<p>Title: "+myLibrary[idx].title+"</p>" +
+    "<p>Title: <span>"+myLibrary[idx].title+"</span></p>" +
     "<p>Author: "+myLibrary[idx].author+"</p>" +
     "<p>Pages: "+myLibrary[idx].pages+"</p>" +
     "<p>Status: "+`${myLibrary[idx].readStatus == true ? 'already read':'not read yet'}`+"</p>";
-  li.className = 'book-item';
+  li.className = 'book-item book-card';
   li.setAttribute('data-book-idx', `${idx}`); //associating DOM element with the actual book object in myLibrary array (via a data-attribute)
 
   //background color: green → read-already |  gray → not-read-yet
@@ -104,7 +108,7 @@ function addToShelf(e) {
   shelf.prepend(li);
 
 }
-
+//Switch read status' (not read yet / read already)
 function changeStatus(e) {
   if(e.target.classList.contains('changeStatus')) { //refering to 'change status' btn
 
@@ -126,14 +130,33 @@ function changeStatus(e) {
   }
 }
 
+//Remove Book object from myLibrary and remove book card from shelf
 function removeBook(e) {
   if(e.target.classList.contains('removeBook')) { //refering to 'change status' btn
     if(confirm('Are you sure?')) {
       let bookCard = e.target.parentElement.parentElement; //'change status' btn parent's parent (i.e the whole card)
       let idx = bookCard.getAttribute('data-book-idx'); //current book index on myLibrary array
 
-      myLibrary.splice(idx, 1); //removing book from myLibrary array
+      myLibrary.splice(idx, 1); //removing Book object from myLibrary array
       shelf.removeChild(bookCard); //removing card from shelf
     }
   }
+}
+
+//Filter bookshelf by book title
+function filterBooks(e) {
+  //convert input text to lowercase
+  let text = e.target.value.toLowerCase();
+  //get books
+  let books = shelf.getElementsByClassName('book-card');
+
+
+  Array.from(books).forEach(function(book) {
+    let bookTitle = book.firstChild.lastChild.textContent; //text content inside <span></span>
+    if(bookTitle.includes(text)) {
+      book.style.display = "block";
+    } else {
+      book.style.display = "none";
+    }
+  });
 }
