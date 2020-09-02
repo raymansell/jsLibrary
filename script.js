@@ -107,6 +107,8 @@ function addToShelf(e) {
   //prepending card to shelf
   shelf.prepend(li);
 
+  e.target.reset(); //clearing form
+
 }
 //Switch read status' (not read yet / read already)
 function changeStatus(e) {
@@ -140,6 +142,12 @@ function removeBook(e) {
       myLibrary.splice(idx, 1); //removing Book object from myLibrary array
       shelf.removeChild(bookCard); //removing card from shelf
     }
+
+    //rearrange data-book-idx's for books left;
+    let booksLeft = Array.from(shelf.getElementsByClassName('book-card'));
+    booksLeft.forEach(function(bookCardLeft, idx) {
+      bookCardLeft.setAttribute('data-book-idx', `${booksLeft.length-1-idx}`);
+    });
   }
 }
 
