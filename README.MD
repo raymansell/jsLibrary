@@ -1,0 +1,1 @@
+Vanilla javaScript library project.
