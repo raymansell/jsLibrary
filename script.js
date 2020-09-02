@@ -15,8 +15,8 @@ Book.prototype = {
   },
 };
 
-const hobbit = new Book("The Hobbit", "J.R.R Tolkien", 295, false);
-console.log(hobbit.info());
+// const hobbit = new Book("The Hobbit", "J.R.R Tolkien", 295, false);
+// console.log(hobbit.info());
 
 //Filter field and event
 const filter = document.getElementById('filter');

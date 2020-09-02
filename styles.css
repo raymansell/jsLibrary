@@ -8,10 +8,8 @@ html {
 }
 
 body {
-  /* background-color: #848463; */
   background-color: #9E7C64;
-  /* font-family: Arial, Helvetica, sans-serif; */
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Raleway', sans-serif;
   margin: 0;
 }
 
@@ -133,12 +131,6 @@ header input {
   background-color: rgba(214, 63, 63, 0.575);
 }
 
-/* .newBookForm {
-  background-color: #e2ecf7;
-  background-color: #b89d74;
-  background-color: #C4B099;
-} */
-
 .newBookForm {
   margin: 0 auto;
 }
@@ -179,8 +171,6 @@ header input {
 }
 
 .addBook button {
-  /* background-color: #9DC2E6; */
-  /* background-color: 	#ecd0b9; */
   background-color: #A68E6D;
   padding: 3px;
   width: 100%;
@@ -192,10 +182,7 @@ header input {
 }
 
 .addBook button:hover{
-  /* background-color: #6AA7E6; */
   background-color: #9C8B67;
-  /* background-color: #d1c2b2; */
-  /* background-color: rgb(201, 201, 201); */
 }
 
 
